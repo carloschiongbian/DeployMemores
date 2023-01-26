@@ -1,0 +1,21 @@
+.sidemenu {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    /* background-color: var(--bs-primary); */
+    background-image: linear-gradient(to bottom, #8866e9, #8c65e8, #9064e7, #9362e6, #9761e5);
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 2rem;
+}
+
+.sm-wrapper {
+    margin-top: 100px;
+}
+
+.left-navigation > .active {
+background-color: red;
+}

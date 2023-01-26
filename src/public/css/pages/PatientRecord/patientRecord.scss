@@ -1,0 +1,31 @@
+.patient-records-container{
+    padding-top: 120px;
+}
+            .data-table-search-bar{
+                width: 100%;
+                display: flex;
+                padding: 15px 20px;
+                flex-direction: row;
+                border-radius: 5px 5px 0 0;
+                background-color: #A79BFF;
+                justify-content: space-between;
+
+                .patient-search-bar{
+                    gap: 7px;
+                    
+                    input[id="search-patient"]{
+                        border: 1px solid #CCC;
+                        height: 100%;
+                        outline: none;
+                        border-radius: 3px;
+                        padding-inline: 7px;
+                        width: 300px;
+                        margin-left: 20px;
+    
+                        &:focus{    
+                            border: 1px solid grey;
+                            background-color: white;
+                        }
+                    }
+                }
+            }
