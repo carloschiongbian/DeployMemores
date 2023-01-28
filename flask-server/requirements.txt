@@ -35,4 +35,3 @@ Werkzeug==2.2.2
 wrapt==1.14.1
 scikit-learn==1.1.2
 sqlalchemy_utils==0.39.0
-cryptography==39.0.0
