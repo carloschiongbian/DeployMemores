@@ -33,8 +33,7 @@ app.config['SESSION_USE_SIGNER'] = True
 # app.config['SESSION_COOKIE_SAMESITE'] = 'None'
 # app.config['SESSION_COOKIE_HTTPONLY'] = True
 # app.config['SESSION_COOKIE_SECURE'] = True
-app.config['SESSION_REDIS'] = redis.from_url("redis://127.0.0.1:6379")
-
+app.config['SESSION_REDIS'] = redis://default:oQFyBpVLXDb1fjJmOOt2@containers-us-west-48.railway.app:6498
 
 # Secret Key
 # NOTE: I am not sure what this is for
