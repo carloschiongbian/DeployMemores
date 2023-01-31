@@ -18,7 +18,6 @@ Jinja2==3.1.2
 MarkupSafe==2.1.1
 marshmallow==3.18.0
 marshmallow-sqlalchemy==0.28.1
-mysqlclient==2.1.1
 numpy==1.23.4
 packaging==21.3
 pandas==1.5.1
