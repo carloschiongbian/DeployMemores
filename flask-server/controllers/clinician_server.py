@@ -18,10 +18,10 @@ from sqlalchemy import delete, update
 app = Flask(__name__)
 
 connection = pymysql.connect(
-    host='localhost',
+    host='containers-us-west-69.railway.app',
     user='root',
-    password='',
-    database='memores_v2',
+    password='5CamgC3qCLDlOAKTnBQh',
+    database='railway',
     charset="utf8mb4",
     cursorclass=pymysql.cursors.DictCursor
 )
