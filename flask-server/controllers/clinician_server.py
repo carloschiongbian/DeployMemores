@@ -12,8 +12,8 @@ from auth.auth import is_authenticated
 from sqlalchemy import create_engine
 from sqlalchemy import delete, update
 
-engine = create_engine("mysql+pymysql://root:@localhost/memores_v2")
-connect = engine.connect()
+#engine = create_engine("mysql+pymysql://root:@localhost/memores_v2")
+#connect = engine.connect()
 
 app = Flask(__name__)
 
