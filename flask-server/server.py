@@ -43,7 +43,7 @@ app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
 # syntax: 'mysql://username:password@localhost/db_name'
 # NOTE: These credentials need to be inside the .env file
 #           Create your own .env file
-app.config['SQLALCHEMY_DATABASE_URI'] = mysql://root:5CamgC3qCLDlOAKTnBQh@containers-us-west-69.railway.app:7669/railway
+app.config['SQLALCHEMY_DATABASE_URI'] = "mysql://root:5CamgC3qCLDlOAKTnBQh@containers-us-west-69.railway.app:7669/railway"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 # init Session
