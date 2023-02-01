@@ -2,7 +2,7 @@
 from controllers.manage import update_user_account, get_user_account, delete_user_account, get_user_view, get_dashboard_data, get_deleted_users, get_updated_users, get_distinct_roles, get_general_users, update_user_photo_details, update_user_license_details, update_user_both_image, update_user_details_only
 from controllers.screening import get_questions, submit_answers, get_patients
 from controllers.patient_details import get_patient_details, update_patient_details, update_patient_notes
-from controllers import get_users, login, register_user, get_current_user, logout, clinician_server, create_patient
+from controllers import get_users, login, register_user, get_current_user, logout, create_patient
 import os
 from flask import Flask
 from flask_bcrypt import Bcrypt
