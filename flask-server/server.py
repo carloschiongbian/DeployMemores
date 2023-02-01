@@ -113,7 +113,7 @@ app.add_url_rule(UPDATE_PATIENT_DETAILS, 'update_patient_details',
 app.add_url_rule(UPDATE_PATIENT_NOTES, 'update_patient_notes', 
                 update_patient_notes.update_patient_notes, methods=['PUT'])
 
-Get Dashboard Data
+# Get Dashboard Data
 app.add_url_rule(DASHBOARD, 'dashboard',
                  clinician_server.retrieveDashboardContent, methods=['GET'])
 
