@@ -12,7 +12,7 @@ from auth.auth import is_authenticated
 from sqlalchemy import create_engine
 from sqlalchemy import delete, update
 
-engine = create_engine("mysql+pymysql://root:@localhost/memores_v2")
+engine = create_engine("mysql://root:5CamgC3qCLDlOAKTnBQh@containers-us-west-69.railway.app:7669/railway")
 connect = engine.connect()
 
 app = Flask(__name__)
