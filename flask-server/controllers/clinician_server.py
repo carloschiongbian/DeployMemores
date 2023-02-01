@@ -17,16 +17,6 @@ connect = engine.connect()
 
 app = Flask(__name__)
 
-connection = pymysql.connect(
-    host='containers-us-west-69.railway.app',
-    user='root',
-    password='5CamgC3qCLDlOAKTnBQh',
-    database='railway',
-    charset="utf8mb4",
-    cursorclass=pymysql.cursors.DictCursor
-)
-
-
 def retrieveData():
     user_id = session.get("user_id")
 
