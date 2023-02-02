@@ -52,19 +52,19 @@ def deletePatientRecord(id):
     if not is_authenticated(user_id):
         return jsonify({"error": "Unauthorized"}), 401
 
-    delete_patients_query = delete(Patients).where(Patients.id == id)
-    delete_assessment_query = delete(
-        Assessments).where(Assessments.patient_id == id)
-    delete_screening_details_query = delete(
-        PatientsScreeningDetails).where(PatientsScreeningDetails.id == id)
-
     # Delete data first from tables that reference a field from the parent table
     # Children tables that reference patient_id field
-    connect.execute(delete_screening_details_query)
-    connect.execute(delete_assessment_query)
+    # Delete statement for PatientsScreeningDetails table
+    db.session.query(PatientsScreeningDetails).filter(PatientsScreeningDetails.assessment_id == id).delete()
+    db.session.commit()
+
+    # Delete statement for Assessments table
+    db.session.query(Assessments).filter(Assessments.patient_id == id).delete()
+    db.session.commit()
 
     # Parent table
-    connect.execute(delete_patients_query)
+    db.session.query(Patients).filter(Patients.id == id).delete()
+    db.session.commit()
 
     return retrieveData()
 
