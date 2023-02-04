@@ -16,6 +16,8 @@ from dotenv import load_dotenv
 from flask_cors import CORS
 import redis
 from flask_session import Session
+import pymysql
+pymysql.install_as_MySQLdb()
 
 UPLOAD_FOLDER = 'static'
 
