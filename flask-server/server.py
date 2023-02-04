@@ -36,7 +36,7 @@ app.config['SESSION_USE_SIGNER'] = True
 # app.config['SESSION_COOKIE_SAMESITE'] = 'None'
 # app.config['SESSION_COOKIE_HTTPONLY'] = True
 # app.config['SESSION_COOKIE_SECURE'] = True
-app.config['SESSION_REDIS'] = redis.Redis(host='containers-us-west-48.railway.app', port=6498)
+app.config['SESSION_REDIS'] = redis.Redis(host='containers-us-west-48.railway.app', port=6498, user='default', password='oQFyBpVLXDb1fjJmOOt2')
 
 # Secret Key
 # NOTE: I am not sure what this is for
