@@ -15,7 +15,7 @@ def create_patient():
     email = data["email"]
     phone = data["contact"]
     age = data["age"]
-    bday = data["birthday"]
+    bday = data["bday"]
     gender = data["gender"]
     street = data["address"]
     city = data["city"]
@@ -27,24 +27,17 @@ def create_patient():
     if not is_authenticated(user_id):
         return jsonify({"error": "Unauthorized"}), 401
 
-    # Check if username or email exist in the database
-    patient_exist = Patients.query.filter_by(
-        fullname="{} {}".format(
-            fname, lname), email=email).first() is not None
-    if patient_exist:
-        return jsonify({"error": "Patient or its email already exist!"}), 409
+    # Check if email exist in the database
+    patient_exists = Patients.query.filter(
+        Patients.email == email).first()
+    if patient_exists:
+        return jsonify({"error": "Email already exist!"}), 409
 
     try:
         new_user = Patients(fname=fname, lname=lname, fullname="{} {}".format(
             fname, lname), email=email, phone=phone, age=age, bday=bday, gender=gender, street=street, city=city, country=country, zip=zip, created_by=user_id)
 
-        new_patient_screening_details = PatientsScreeningDetails(
-            assessment_id=" ", patient_notes=" ", last_edited_on=" ")
-
         db.session.add(new_user)
-        db.session.commit()
-
-        db.session.add(new_patient_screening_details)
         db.session.commit()
 
     except pymysql.Error as e:
