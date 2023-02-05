@@ -116,7 +116,7 @@ def get_patients_v2():
 # It is necessary to do it this way because these fields need to be serialized
 class PatientAssessmentSchema(ma.Schema):
     class Meta:
-        fields = ('id', 'fname', 'lname', 'fullname', 'assessment_id', 'prediction_result', 'classification_probability', 'result_description', 'date_taken', 'created_by')
+        fields = ('id', 'fname', 'lname', 'fullname', 'age', 'assessment_id', 'prediction_result', 'classification_probability', 'result_description', 'date_taken', 'created_by')
 
 
 patient_assessments_schema = PatientAssessmentSchema(many = True)
