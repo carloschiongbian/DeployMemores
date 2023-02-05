@@ -34,7 +34,10 @@ def update_user_by_admin():
         user.uname = username
         db.session.commit()
 
-        return jsonify({"success": "Updated Password Successfully"}), 200
+        updatedUser = Users.query.filter_by(id=id).with_entities(
+            Users.id, Users.uname, Users.fname, Users.lname, Users.role, Users.email, Users.created_at)
+
+        return users_schema.jsonify(updatedUser)
 
     # if password and confirm password is empty, it means the user wants to update his username only
     # Check if username or email exist in the database
