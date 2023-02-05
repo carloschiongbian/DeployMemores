@@ -24,6 +24,16 @@ def get_patient_details(id):
                         filter(Patients.id == int(id))
     
     patient = query.first()
+    
+    if patient is None:
+        return jsonify({'error': 'No Data'}), 203
+
+    # If the patient is not created by the currently logged in user,
+    # return Unauthorized access
+    if patient.created_by != user_id:
+        return jsonify({"error": "Unauthorized"}), 203
+
+
     patient_response_obj = patient_details_schema.jsonify(patient)
     return patient_response_obj.get_json(), 200
 
@@ -33,7 +43,7 @@ class PatientDetailsSchema(ma.Schema):
     class Meta:
         """Specify which fields you want to see in RESTful API"""
         fields = ('id', 'assessment_id', 'fname', 'lname', 'fullname', 'email', 'phone', 'age', 'bday', 'gender', 'street', 'city',
-                    'country', 'zip', 'registered_date', 'prediction_result', 'classification_probability', 'result_description',
+                    'country', 'zip', 'registered_date', 'prediction_result', 'created_by', 'classification_probability', 'result_description',
                     'date_taken', 'date_finished', 'additional_info', 'patient_notes', 'last_edited_on')
 
 patient_details_schema = PatientDetailsSchema()
