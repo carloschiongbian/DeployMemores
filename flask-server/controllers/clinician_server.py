@@ -1,5 +1,3 @@
-import pymysql.cursors
-import time
 from connection.connection import db, ma
 from flask import Flask, jsonify, request, session
 
@@ -8,8 +6,6 @@ from models.assessments import Assessments
 from controllers.get_current_user import *
 from models.patient_screening_details import PatientsScreeningDetails
 from auth.auth import is_authenticated
-
-from sqlalchemy import create_engine, delete
 
 app = Flask(__name__)
 
@@ -115,7 +111,6 @@ def retrieveDashboardContent():
 
     return records
 
-
 class PatientAssessmentSchema(ma.Schema):
     class Meta:
         fields = ('id', 'date_taken', 'date_finished',
@@ -124,7 +119,6 @@ class PatientAssessmentSchema(ma.Schema):
 
 patient_assessment_schema = PatientAssessmentSchema(many=True)
 
-
 class PatientScreeningDetailsSchema(ma.Schema):
     class Meta:
         fields = ('id', 'assessment_id', 'patient_notes', 'last_edited_on')
@@ -132,11 +126,9 @@ class PatientScreeningDetailsSchema(ma.Schema):
 
 patient_screening_details_schema = PatientScreeningDetailsSchema(many=True)
 
-
 class PatientRecordSchema(ma.Schema):
     class Meta:
         fields = ('id', 'fname', 'lname', 'fullname', 'age', 'bday', 'phone', 'email',
                   'gender', 'city', 'country', 'street', 'zip', 'registered_date', 'date_taken', 'date_finished', 'created_by')
-
 
 patient_record_schema = PatientRecordSchema(many=True)
