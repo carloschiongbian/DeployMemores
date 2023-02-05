@@ -28,8 +28,8 @@ def submit_answers():
     date_finished = request_obj['dateEnded']
     additional_info = request_obj['additionalInfo']
     
-    positive = 'does show a manifestation of social anxiety disorder'
-    negative = 'does not show a manifestation of social anxiety disorder'
+    positive = 'does suggest a manifestation of social anxiety disorder'
+    negative = 'does not suggest a manifestation of social anxiety disorder'
     description = positive if int(classification) == 1 else negative
     # We do not need to explicitly put date_finished because by default, it
     # will use the current time when this is written to the database
