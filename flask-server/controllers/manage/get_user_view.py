@@ -20,6 +20,9 @@ def get_user_account_view():
 
     user = Users.query.filter_by(id=id).first()
 
+    if user is None:
+        return jsonify({'error': 'No Data'}), 203
+
     imageBase64 = base64.b64encode(user.license)
 
     return jsonify({
@@ -38,4 +41,4 @@ def get_user_account_view():
         "city": user.city,
         "country": user.country,
         "zipcode": user.zip
-    })
+    }), 200
