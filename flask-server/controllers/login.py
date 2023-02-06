@@ -21,6 +21,7 @@ def login():
     session.permanent = True
 
     return jsonify({
+        "session_id": session["user_id"],
         "id": user_exist.id,
         "fname": user_exist.fname,
         "lname": user_exist.lname,
