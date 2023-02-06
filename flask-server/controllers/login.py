@@ -17,7 +17,7 @@ def login():
         return jsonify({"error": "Incorrect Password!"}), 401
 
     # session.clear()
-    session["user_id"] = user_exist.id
+    session.add('user_id', user_exist.id)
     session.permanent = True
 
     return jsonify({
