@@ -15,6 +15,7 @@ def get_current_user():
     user = Users.query.filter_by(id=user_id).first()
 
     return jsonify({
+        "user_id": user_id,
         "id": user.id,
         "uname": user.uname,
         "fname": user.fname,
