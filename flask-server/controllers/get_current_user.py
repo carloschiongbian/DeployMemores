@@ -8,7 +8,9 @@ def get_current_user():
     user_id = session.get("user_id")
 
     if not is_authenticated(user_id):
-        return jsonify({"error": "Unauthorized"}), 401
+#         return jsonify({"error": "Unauthorized"}), 401
+        return jsonify({"error": "Unauthorized", "user_id": user_id}), 401
+
 
     user = Users.query.filter_by(id=user_id).first()
 
