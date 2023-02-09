@@ -12,6 +12,18 @@ def update_patient_details():
 
     patient_details = request.get_json()
     id = patient_details['id']
+    email = patient_details['email']
+    created_by = patient_details['created_by']
+    
+    # Check if the patient is created by the current user
+    patient = Patients.query.filter(Patients.id == id, Patients.created_by == created_by).first()
+    if patient is None:
+        return jsonify({"error": "Unauthorized"}), 401
+
+    # Check if the email already exists, and the email to be updated is on a different account
+    is_exist = Patients.query.filter(Patients.email == email).first()
+    if is_exist is not None and id != is_exist.id:
+        return jsonify({"error": "Cannot Perform Action. Email already exists!"}), 409
 
     try:
         # Do not include the id (primary key) when updating
