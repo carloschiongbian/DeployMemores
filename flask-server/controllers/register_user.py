@@ -46,7 +46,7 @@ def register_user():
 
     # Check if username or email exist in the database
     user_exist = Users.query.filter(
-        (Users.email == email) | (Users.uname == uname)).first()
+        (Users.email == email) | (Users.uname == uname), Users.is_deleted == 0).first()
     if user_exist:
         return jsonify({"error": "Username or email already exist!"}), 409
 
