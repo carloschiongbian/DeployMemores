@@ -8,7 +8,7 @@ def login():
     user = request.json["user"]
     password = request.json["password"]
 
-    user_exist = Users.query.filter_by(uname=user).first().filter_by(uname=user, is_deleted=0).first()
+    user_exist = Users.query.filter_by(uname=user, is_deleted=0).first()
 
     if user_exist is None:
         return jsonify({"error": "Username does not exist!"}), 401
