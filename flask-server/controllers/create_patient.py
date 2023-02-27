@@ -27,12 +27,6 @@ def create_patient():
     if not is_authenticated(user_id):
         return jsonify({"error": "Unauthorized"}), 401
 
-    # Check if email exist in the database
-    patient_exists = Patients.query.filter(
-        Patients.email == email).first()
-    if patient_exists:
-        return jsonify({"error": "Email already exist!"}), 409
-
     try:
         new_user = Patients(fname=fname, lname=lname, fullname="{} {}".format(
             fname, lname), email=email, phone=phone, age=age, bday=bday, gender=gender, street=street, city=city, country=country, zip=zip, created_by=user_id)
