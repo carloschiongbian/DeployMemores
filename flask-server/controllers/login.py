@@ -5,7 +5,7 @@ from flask_bcrypt import check_password_hash
 
 
 def login():
-    user = request.json["user"]
+    username = request.json["username"]
     password = request.json["password"]
 
     user_exist = Users.query.filter_by(uname=user, is_deleted=0).first()
