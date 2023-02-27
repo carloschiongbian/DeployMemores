@@ -20,11 +20,6 @@ def update_patient_details():
     if patient is None:
         return jsonify({"error": "Unauthorized"}), 401
 
-    # Check if the email already exists, and the email to be updated is on a different account
-    is_exist = Patients.query.filter(Patients.email == email).first()
-    if is_exist is not None and id != is_exist.id:
-        return jsonify({"error": "Cannot Perform Action. Email already exists!"}), 409
-
     try:
         # Do not include the id (primary key) when updating
         # otherwise db Integrity Error is thrown

@@ -26,7 +26,6 @@ LOGOUT = "/api/logout"
 PATIENT_RECORDS = "/api/patient-records"
 DELETE_PATIENT_RECORD = "/api/patient-records/delete/id=<id>"
 DASHBOARD = "/api/dashboard"
-
 SUBMIT_ANSWERS = "/api/submit-answers"
 UPDATE_USER_ACCOUNT = "/api/update-user"
 GET_USER_ACCOUNT_DETAILS = "/api/get-user-account"
